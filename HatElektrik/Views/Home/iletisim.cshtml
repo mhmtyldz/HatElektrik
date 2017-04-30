@@ -1,0 +1,78 @@
+﻿@model HatElektrik.Models.Tablolar.iletisim
+@{
+    ViewBag.Title = "Hat Elektrik İletisim";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+<h2>İletişim</h2>
+
+<!--=========== BEGIN CONTACT SECTION ================-->
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="title_area">
+                    <h2 class="title_two">Hat Aydınlatma & Elektrik İletişim ve Adres Bilgileri</h2>
+                    <span> </span>
+                    <p>
+                        Aşağıdaki formu doldurarak bizlere önerilerde bulunabilirsiniz. Ayrıca Ürünlerimiz sayfasından ürünlerimizi beğenebilir,
+                        Bizlere siparişlerinizi bildirebilirsiniz.
+                        Şikayetleriniz için 7/24 Açık bulunan Telefonlarımızdan , Email Adresimizden yada Bu formu doldurarak ulaşabilirsiniz.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="contact_form wow fadeInLeft">
+                    @if (TempData["Bilgi"] != null)
+                    {
+
+                        <img src="~/KullaniciContent/img/onay.png" width="75" height="75" />
+                        <h3 style="color:#538e32">@(TempData["Bilgi"])</h3>
+                    }
+                    @using (Html.BeginForm("iletisim", "Home", FormMethod.Post))
+                    {
+                        <div style="color:#ff0000;font-size:16px;font-family:'Trebuchet MS';font-weight:bold">
+                            @Html.ValidationSummary()
+                        </div>
+                        @Html.TextBoxFor(x => x.AdSoyad, new { @class = "wp-form-control wpcf7-text", id = "AdSoyad", placeholder = "Adınız Soyadınız",required="required" })
+                        @Html.TextBoxFor(x => x.Email, new { @class = "wp-form-control wpcf7-email", id = "Email", placeholder = "Email Adresiniz", required = "required" })
+                        @Html.TextBoxFor(x => x.TelNo, new { @class = "wp-form-control wpcf7-text", id = "TelNo", placeholder = "Telefon Numaranız",required="required" })
+                        @Html.TextBoxFor(x => x.Konu, new { @class = "wp-form-control wpcf7-text", id = "Konu", placeholder = "Konu" })
+                        @Html.TextAreaFor(x => x.Mesaj, new { @class = "wp-form-control wpcf7-textarea", id = "Mesaj", required = "required", placeholder = "Lütfen Göndermek istediğiniz Mesajı Giriniz", row = "10" })
+                        <input type="submit" value="Gönder" class="wpcf7-submit">
+
+                    }
+
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="contact_address wow fadeInRight">
+                    
+                    <h3>Adres</h3>
+                    <div class="address_group">
+                        <p>Kurtköy Mahallesi, Yeşilırmak Caddesi No:27/A Pendik/İSTANBUL</p>
+                        <p>Phone: 0216 595 11 88</p>
+                        <p>Email:hatelektrik@outlook.com</p>
+                    </div>
+                    <div class="address_group">
+                        <ul class="footer_social">
+                            <li><a href="https://www.facebook.com/Hatelektrik.net/" blank="_target" class="soc_tooltip" title="" data-placement="top" data-toggle="tooltip" data-original-title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.facebook.com/Hatelektrik.net/" class="soc_tooltip" title="" data-placement="top" data-toggle="tooltip" data-original-title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.facebook.com/Hatelektrik.net/" class="soc_tooltip" title="" data-placement="top" data-toggle="tooltip" data-original-title="Google+"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="https://www.facebook.com/Hatelektrik.net/" class="soc_tooltip" title="" data-placement="top" data-toggle="tooltip" data-original-title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="https://www.facebook.com/Hatelektrik.net/" class="soc_tooltip" title="" data-placement="top" data-toggle="tooltip" data-original-title="Youtube"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--=========== END CONTACT SECTION ================-->
+<!--=========== BEGIN GOOGLE MAP SECTION ================-->
+<section id="googleMap">
+    <iframe width="100%" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d376.870196980527!2d29.2992520401972!3d40.916588369640984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cada47b1bdbbb9%3A0x5316efac8f2ffc2e!2zS3VydGvDtnkgTWFoYWxsZXNpLCBZZcWfaWzEsXJtYWsgQ2QuIE5vOjI1LCAzNDkxMiBQZW5kaWsvxLBzdGFuYnVs!5e0!3m2!1str!2str!4v1493391046052"></iframe>
+</section>
+<!--=========== END GOOGLE MAP SECTION ================-->

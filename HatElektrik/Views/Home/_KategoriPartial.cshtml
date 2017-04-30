@@ -1,0 +1,7 @@
+﻿@model IEnumerable<HatElektrik.Models.Tablolar.Kategori>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="/Home/KategoriUrunler/@item.ID">@item.KategoriAdi</a></li>
+    }
+</ul>

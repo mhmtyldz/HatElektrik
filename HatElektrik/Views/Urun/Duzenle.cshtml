@@ -1,0 +1,88 @@
+﻿@model HatElektrik.Models.Tablolar.Urun
+@{
+    ViewBag.Title = "Ürün Düzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .bootstrap-tagsinput {
+        width: 100%;
+    }
+
+    .validation-summary-errors {
+        color: #ffffff;
+        font-size: 16px;
+        font-family: 'Trebuchet MS';
+        border-radius: 5px;
+        height: auto;
+        width: 700px;
+        background-color: #ff5905;
+    }
+
+        .validation-summary-errors li {
+            list-style-type: none;
+        }
+</style>
+
+
+
+
+<div class="container-fluid">
+    @using (Html.BeginForm("Duzenle", "Urun", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+
+    <!-- Basic form -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <header class="panel-heading">@ViewBag.Title</header>
+                    <div class="panel-body">
+
+                        @Html.ValidationSummary()
+                        <div class="form-group">
+                            <label style="color:#ff6a00;"> Lütfen Kategorinizi Doğru Seçiniz!</label><br />
+                            <label for="exampleInputEmail1"> Kategori</label>
+                            @Html.DropDownListFor(model => model.KategoriID, new SelectList(ViewBag.Kategori, "ID", "KategoriAdi"), new { @class = "form-control", id = "KategoriID" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> Başlık</label>
+                            @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control", id = "Baslik", placeholder = "Ürün Başlık" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Kısa Açıklama</label>
+                            @Html.TextAreaFor(model => model.KisaAciklama, new { @class = "form-control", id = "KisaAciklama", placeholder = "Ürün Kısa Açıklama", rows = "3" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1"> Açıklama</label>
+                            @Html.TextAreaFor(model => model.Aciklama, new { @class = "form-control", id = "Aciklama", placeholder = "Açıklama", rows = "5" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> Adet</label>
+                            @Html.TextBoxFor(x => x.Adet, new { @class = "form-control", id = "Adet", placeholder = "Ürün Adet" })
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1"> Fiyat</label>
+                            @Html.TextBoxFor(x => x.Fiyat, new { @class = "form-control", id = "Fiyat", placeholder = "Ürün Fiyat" })
+                        </div>
+
+                        <div class="form-group">
+                            <label style="color:#ff6a00;"> Lütfen Resimin Boyutu 1450 x 800 yapınız</label><br />
+                            <label for="exampleInputPassword1">Resim </label>
+                            <input type="file" name="VitrinResmi" accept="image/*" class="form-control" /><br />
+                            <img src="@Model.ResimURL" width="250" height="150" alt="@Model.Baslik" />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">Güncelle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

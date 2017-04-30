@@ -1,0 +1,104 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from karlomikus.com/saltkin/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Apr 2016 14:52:57 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hat Elektrik  &amp; Limited Anonim Şirketi</title>
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,400italic%7cMontserrat:400,700" rel="stylesheet" type="text/css">
+    <!-- Icons -->
+    <link href="~/Admin/Content/typicons.min.css" rel="stylesheet" />
+    <link href="~/Admin/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Admin/Content/icheck/minimal.css" rel="stylesheet" />
+    <link href="~/Admin/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Admin/Content/plugins.min.css" rel="stylesheet" />
+    <link href="~/Admin/Content/main.css" rel="stylesheet" />
+</head>
+<body class="login-page">
+
+    <!-- Page container -->
+    <div class="container">
+        <p class="text-center">
+            Hat Elektrik Giriş Sayfası
+            <p style="color:#ff0000; font-family:'Trebuchet MS'; font-size:17px;" class="text-center">
+                @if (TempData["Bilgi"] != null)
+                {
+                    @TempData["Bilgi"]
+                }
+            </p>
+           
+        </p>
+      
+        <div class="login-buttons">
+            <button class="btn btn-login" data-toggle="modal" data-target="#loginModal">Giriş Yap</button>
+
+        </div>
+    </div>
+  
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Giriş Yapınız</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form">
+                           
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email" name="Email" autofocus required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="Şifre" name="Sifre" required>
+                            </div>
+                          
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Kapat </button>
+                        <button type="submit" class="btn btn-success">Giriş Yap</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <!-- Sign up modal -->
+    <!-- SCRIPTS -->
+   
+    <script src="~/Admin/Scripts/plugins/jquery.min.js"></script>
+
+    <script src="~/Admin/Scripts/plugins/modernizr.min.js"></script>
+    <!-- Bootstrap core -->
+    <script src="~/Admin/Scripts/plugins/bootstrap.min.js"></script>
+    <!-- Custom scrollbar -->
+    <script src="~/Admin/Scripts/plugins/enscroll.min.js"></script>
+    <!-- Dynamic tables -->
+    <script src="~/Scripts/plugins/footable.min.js"></script>
+    <!-- Knob / Donut charts -->
+    <script src="~/Admin/Scripts/plugins/knob.min.js"></script>
+    <!-- Rickshaw graphs & charts -->
+    <script src="~/Admin/Scripts/plugins/sparkline.min.js"></script>
+    <script src="~/Admin/Scripts/plugins/rickshaw/d3.v3.js"></script>
+    <script src="~/Admin/Scripts/plugins/rickshaw/rickshaw.min.js"></script>
+    <!-- Flot -->
+    <script src="~/Admin/Scripts/plugins/flot.min.js"></script>
+    <!-- Custom checkboxes and radio input -->
+    <script src="~/Admin/Scripts/plugins/icheck.min.js"></script>
+    <!-- Page specific -->
+    <script src="~/Admin/Scripts/page-dashboard.js"></script>
+    <!-- Site -->
+    <script src="~/Admin/Scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<HatElektrik.Models.Tablolar.Kampanya>
+
+<ul class="news_tab">
+    @if (Model.Count()>0)
+    {
+        foreach (var item in Model)
+        {
+            <li>
+                <div class="media">
+                    <div class="media-left">
+                        <a class="news_img" href="/Home/Kampanyalar">
+                            <img class="media-object" src="@item.ResimURL" alt="img">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="#">@item.Baslik</a>
+                        <span class="feed_date">@item.EklenmeTarihi</span>
+
+                    </div>
+                </div>
+            </li>
+         
+
+        }
+        <a class="see_all" href="/Home/Kampanyalar">Hepsini Gör</a>
+    }
+    else
+    {
+             <li>
+                <div class="media">
+                    <div class="media-left">
+                        <a class="news_img" href="#">
+                            <img class="media-object" src="~/External/kampanya-yok.jpg" />
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="#">Kampanya Bulunamamıştır</a>
+                    </div>
+                </div>
+            </li>
+    }
+
+
+</ul>

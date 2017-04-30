@@ -1,0 +1,82 @@
+﻿
+@model IEnumerable<HatElektrik.Models.Tablolar.Urun>
+
+<section id="ourCourses">
+    <div class="container">
+        <!-- Our courses titile -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="title_area">
+                    <h2 class="title_two">Son Eklenen Ürünler</h2>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <!-- End Our courses titile -->
+        <!-- Start Our courses content -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="ourCourse_content">
+                    <ul class="course_nav">
+                        @foreach (var item in Model)
+                        {
+                            <li>
+                                <div class="single_course">
+                                    <div class="singCourse_imgarea">
+                                        <img src="@item.ResimURL" alt="@item.Baslik" height="250" />
+                                        <div class="mask">
+                                            <a href="/Home/UrunAyrinti/@item.ID" class="course_more">Ürün Ayrıntı</a>
+                                        </div>
+                                    </div>
+                                    <div class="singCourse_content">
+                                        <h3 class="singCourse_title">
+                                            <a href="#">
+                                                @if (item.Baslik.Length > 25)
+                                                {
+                                                    <p> @(item.Baslik.Substring(0, 25) + "...") </p>
+
+                                                }
+                                                else
+                                                {
+                                                    <p>  @item.Baslik </p>
+                                                }
+
+                                            </a>
+                                        </h3>
+                                        <p class="singCourse_price"><span>@item.Fiyat TL</span> @item.Adet Adet</p>
+                                        <p>
+
+                                            @if (string.IsNullOrEmpty(item.KisaAciklama) == false)
+                                            {
+                                                if (item.KisaAciklama.Length > 32)
+                                                {
+                                                <p> @(item.KisaAciklama.Substring(0, 32) + "...") </p>  //Bu substring 0 dan başla 40 karakter yaz demek
+
+                                                }
+                                                else
+                                                {
+                                                    <p>  @item.KisaAciklama </p>
+                                                }
+                                            }
+                                            else
+                                            {
+                                                <p>Kısa Açıklama Mevcut Değildir.</p>
+                                            }
+                                            </p>
+                                        </div>
+                                        <div class="singCourse_author">
+                                            <img src="~/KullaniciContent/img/kategori.png" />
+                                            <p>@item.Kategori.KategoriAdi</p>
+                                        </div>
+                                    </div>
+                                </li>
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End Our courses content -->
+    </div>
+</section>

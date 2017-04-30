@@ -1,0 +1,38 @@
+﻿@model IEnumerable<HatElektrik.Models.Tablolar.Urun>
+
+<ul class="news_tab">
+    @foreach (var item in Model)
+    {
+        <li>
+        <div class="media">
+            <div class="media-left">
+                <a href="/Home/UrunAyrinti/@item.ID" class="news_img">
+                    <img alt="@item.Baslik" src="@item.ResimURL" class="media-object">
+                </a>
+            </div>
+            <div class="media-body">
+                <a href="#">
+                    @if (item.Baslik.Length > 23)
+                    {
+                        <p> @(item.Baslik.Substring(0, 23) + "...") </p>
+
+                    }
+                    else
+                    {
+                        <p>  @item.Baslik </p>
+                    }
+                
+                
+                </a>
+                <span class="feed_date">@item.EklenmeTarihi</span>
+            </div>
+        </div>
+    </li>
+    }
+    
+    
+</ul>
+   
+    
+    
+

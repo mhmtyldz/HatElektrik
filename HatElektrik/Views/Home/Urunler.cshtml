@@ -1,0 +1,92 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model  PagedList.IPagedList<HatElektrik.Models.Tablolar.Urun>
+@{
+    ViewBag.Title = "Hat Elektrik Urunler";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+@*<section id="imgBanner">
+        <h2>Ürünler</h2>
+    </section>*@
+<h2>Ürünler</h2>
+<section id="courseArchive">
+    <div class="container">
+        <div class="row">
+            <!-- start course content -->
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="courseArchive_content">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="single_course wow fadeInUp">
+                                    <div class="singCourse_imgarea">
+                                        <img src="@item.ResimURL" alt="@item.Baslik" height="240" />
+                                        <div class="mask">
+                                            <a href="/Home/UrunAyrinti/@item.ID" class="course_more">Ürün Ayrıntı</a>
+                                        </div>
+                                    </div>
+                                    <div class="singCourse_content">
+                                        <h3 class="singCourse_title">
+                                            <a href="course-single.html">
+
+                                                @if (item.Baslik.Length > 25)
+                                                {
+                                                    <p> @(item.Baslik.Substring(0, 25) + "...") </p>
+
+                                                }
+                                                else
+                                                {
+                                                    <p>  @item.Baslik </p>
+                                                }
+                                            </a>
+                                        </h3>
+                                        <p class="singCourse_price">
+                                            <span>
+                                            @if (item.Fiyat!=null)
+                                            {
+                                                 @(item.Fiyat+" TL")
+                                            }
+                                            else
+                                            {
+                                                <span>Fiyat Yok</span>
+                                            }       
+                                               
+                                            </span> @item.Adet Adet
+                                        </p>
+                                        @if (string.IsNullOrEmpty(item.KisaAciklama) == false)
+                                        {
+                                            if (item.KisaAciklama.Length > 40)
+                                            {
+                                                <p> @(item.KisaAciklama.Substring(0, 40) + "...") </p>  //Bu substring 0 dan başla 40 karakter yaz demek
+
+                                            }
+                                            else
+                                            {
+                                                <p>  @item.KisaAciklama </p>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <p>Kısa Açıklama Mevcut Değildir.</p>
+                                        }
+
+                                    </div>
+                                    <div class="singCourse_author">
+                                        <img src="~/KullaniciContent/img/kategori.png" />
+                                        <p>@item.Kategori.KategoriAdi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+
+
+                    </div>
+                    <!-- start previous & next button -->
+                    @Html.PagedListPager(Model, Sayfa => Url.Action("Urunler", new { Sayfa }), PagedListRenderOptions.Classic)
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

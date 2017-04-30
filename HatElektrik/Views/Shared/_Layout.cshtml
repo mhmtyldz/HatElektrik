@@ -1,0 +1,237 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from karlomikus.com/saltkin/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Apr 2016 14:51:23 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <!-- Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,400italic%7cMontserrat:400,700" rel="stylesheet" type="text/css">
+    <!-- Icons -->
+
+    <link href="~/Admin/Content/typicons.min.css" rel="stylesheet" />
+    <link href="~/Admin/Content/typicons.min.css" rel="stylesheet" />
+    <link href="~/Admin/Content/font-awesome.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/icon" href="~/KullaniciContent/img/hat-elektrik-icon.png" />
+    <!-- iCheck - Custom radio/check input -->
+
+    <link href="~/Admin/Content/icheck/minimal.css" rel="stylesheet" />
+    <!-- Bootstrap -->
+    <!-- Footable plugin -->
+    <link href="~/Admin/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Admin/Content/plugins.min.css" rel="stylesheet" />
+    <!-- Template -->
+
+    <link href="~/Admin/Content/sweetalert.css" rel="stylesheet" />
+
+    <link href="~/Admin/Content/main.css" rel="stylesheet" />
+    <link href="~/Admin/Content/bootstrap-tagsinput.css" rel="stylesheet" />
+
+    <script src="~/Admin/Scripts/plugins/jquery.min.js"></script>
+
+
+    <!--[if lt IE 9]>
+      <script src="js/plugins/shiv.min.js"></script>
+      <script src="js/plugins/respond.min.js"></script>
+      <script src="js/plugins/excanvas.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <!-- Page container -->
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside id="sidebar">
+            <!-- Sidebar header -->
+            <header class="sidebar-header">
+                <h1 style="color:#fff">Hat Elektrik</h1>
+                <a href="#" id="make-compact"><span class="typcn typcn-th-menu"></span></a>
+                <a href="#" id="hide-menu"><span class="fa fa-caret-square-o-left"></span></a>
+            </header>
+            <!-- /Sidebar header -->
+            <!-- Sidebar group -->
+            <ul class="sidebar-group">
+                <li class="sidebar-group-header">MENÜ</li>
+                <li>
+                    <a href="@Url.Action("Admin","Account")"><i class="typcn typcn-home"></i> <span>Anasayfa</span></a>
+                    <a href="@Url.Action("Index","Home")"><i class="typcn typcn-home"></i> <span>Siteye Git</span></a>
+                    <div class="sidebar-link-addon"><span class="badge bg-green">YENİ</span></div>
+                </li>
+                <li class="has-submenu">
+                    <a href="#"><i class="glyphicon glyphicon-gift"></i> <span>Ürün Yönetimi</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="@Url.Action("Index","Urun")">Ürün Listele</a></li>
+                        <li><a href="@Url.Action("Ekle","Urun")">Ürün Ekle</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+                <li class="has-submenu">
+                    <a href="#"><i class="glyphicon glyphicon-subtitles"></i> <span>Kategori Yönetimi</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="@Url.Action("Index","Kategori")">Kategori Listele</a></li>
+                        <li><a href="@Url.Action("Ekle","Kategori")">Kategori Ekle</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="glyphicon glyphicon-bullhorn"></i> <span>Kampanya Yönetimi</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="@Url.Action("Index","Kampanya")">Kampanya Listele</a></li>
+                        <li><a href="@Url.Action("Ekle", "Kampanya")">Kampanya Ekle</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="glyphicon glyphicon-star"></i> <span>Referans Yönetimi</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="@Url.Action("Index","Referans")">Referans Listele</a></li>
+                        <li><a href="@Url.Action("Ekle", "Referans")">Referans Ekle</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="glyphicon glyphicon-camera"></i> <span>Slider Yönetimi</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="@Url.Action("Index","Slider")">Slider Listele</a></li>
+                        <li><a href="@Url.Action("Ekle","Slider")">Slider Ekle</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="glyphicon glyphicon-picture"></i> <span>Galeri Yönetimi</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="@Url.Action("Index","Galeri")">Galeri Resmi Listele</a></li>
+                        <li><a href="@Url.Action("Ekle","Galeri")">Galeri Resmi Ekle</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="glyphicon glyphicon-envelope"></i> <span>Mesaj Yönetimi</span></a>
+                    <div class="sidebar-link-addon"><i class="typcn typcn-plus"></i></div>
+                    <!-- Sidebar submenu -->
+                    <ul class="sidebar-submenu">
+                        <li><a href="@Url.Action("Index","iletisim")">Mesaj Listele</a></li>
+                    </ul>
+                    <!-- /Sidebar submenu -->
+                </li>
+
+            </ul>
+            <!-- /Sidebar group -->
+            <!-- Sidebar group -->
+            <ul class="sidebar-group">
+                <li class="sidebar-group-header">Prepared By Mahmut Yıldız</li>
+                <li><a href="#"><i class="typcn typcn-starburst text-red"></i> <span>Web design</span></a></li>
+                <li><a href="#"><i class="typcn typcn-starburst text-blue"></i> <span>Web Programming</span></a></li>
+                <li><a href="#"><i class="typcn typcn-starburst text-green"></i> <span>Logo Design</span></a></li>
+            </ul>
+            <!-- /Sidebar group -->
+            <br>
+            <!-- Sidebar panel -->
+
+        </aside>
+
+        <!-- /Sidebar -->
+        <!-- Content -->
+        <div id="content">
+            <!-- Header -->
+
+            <nav class="header-site">
+                <div class="container-fluid">
+                    <!-- Page title and breadcrumb navigation -->
+                    <div class="page-title">
+                        <h4><a href="#" id="toggle-menu"><i class="typcn typcn-th-menu"></i></a> <span><b style="color:#4ea62e">Hat Elektrik Yönetim Sayfası</b></span></h4>
+                        <nav>
+                            <a href="@Url.Action("Index","Home")">Anasayfa</a>
+                            <span class="typcn typcn-chevron-right"></span>
+                            <a href="#">@ViewBag.Title</a>
+                        </nav>
+                    </div>
+                    <!-- /Page title and breadcrumb navigation -->
+                    <!-- Header navigation / icons -->
+                    <ul class="header-nav navbar-right">
+
+                        <!-- Profile -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+                                <img src="~/KullaniciContent/img/hat-elektrik-icon.png" width="32" height="32" />
+                            </a>
+                            <ul class="dropdown-menu dropdown-arrow pull-right">
+                                <li><a href="/Accout/CikisYap"><span class="typcn typcn-power"></span> Çıkış Yap</a></li>
+                            </ul>
+                        </li>
+                        <!-- /Profile -->
+                    </ul>
+                    <!-- /Header navigation / icons -->
+                </div>
+            </nav>
+            <!-- /Header -->
+            <!-- Content start -->
+            @RenderBody()
+        </div>
+        <!-- /Content -->
+    </div>
+    <!-- /Page container -->
+    <!-- PLUGINS ALL -->
+
+
+
+
+
+    <script src="~/Admin/Scripts/plugins/modernizr.min.js"></script>
+    <!-- Bootstrap core -->
+    <script src="~/Admin/Scripts/plugins/bootstrap.min.js"></script>
+    <!-- Custom scrollbar -->
+    <script src="~/Admin/Scripts/plugins/enscroll.min.js"></script>
+    <!-- Dynamic tables -->
+    <script src="~/Admin/Scripts/plugins/footable.min.js"></script>
+    <!-- Knob / Donut charts -->
+    <script src="~/Admin/Scripts/plugins/knob.min.js"></script>
+    <!-- Rickshaw graphs & charts -->
+    <script src="~/Admin/Scripts/plugins/sparkline.min.js"></script>
+    <script src="~/Admin/Scripts/plugins/rickshaw/d3.v3.js"></script>
+    <script src="~/Admin/Scripts/plugins/rickshaw/rickshaw.min.js"></script>
+    <!-- Flot -->
+    <script src="~/Admin/Scripts/plugins/flot.min.js"></script>
+    <!-- Custom checkboxes and radio input -->
+    <script src="~/Admin/Scripts/plugins/icheck.min.js"></script>
+    <!-- Page specific -->
+    <!-- Site -->
+    <script src="~/Admin/Scripts/main.js"></script>
+
+
+
+    <script src="~/Admin/Scripts/Global.js"></script>
+
+    <script src="~/Admin/Scripts/bootstrap-tagsinput.js"></script>
+    <script src="~/Admin/Scripts/bootbox.min.js"></script>
+
+    <script src="~/Admin/Scripts/notify.js"></script>
+
+    <script src="~/Admin/Scripts/jquery.form.min.js"></script>
+    <script src="~/Admin/Scripts/sweetalert.min.js"></script>
+
+
+
+</body>
+<!-- Mirrored from karlomikus.com/saltkin/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 14 Apr 2016 14:51:58 GMT -->
+</html>

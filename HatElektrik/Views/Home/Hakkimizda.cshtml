@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Hat Elektrik Hakkimizda";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+
+<h2>Hakkımızda</h2>
+<section id="courseArchive">
+    <div class="container">
+        <div class="row">
+            <!-- start course content -->
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="courseArchive_content">
+                    <!-- start blog archive  -->
+                    <div class="row">
+                        <!-- start single blog -->
+                        <div class="col-lg-12 col-12 col-sm-12">
+                            <div class="single_blog">
+                                <!-- start events slider -->
+                                <div class="events_slider_area">
+                                    <div class="events_slider">
+                                        <div>
+                                            @*<img src="~/External/Slider/hat-0010.png" alt="Hat Elektrik KurtKöy" />*@
+                                            <img src="~/KullaniciContent/img/Banner_5.jpg" alt="Hat Aydınlatma Elektrik KurtKöy" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End events slider -->
+                                <h2 class="blog_title"> Hat Aydınlatma Elektrik Hakkında</h2>
+                                <div class="blog_commentbox">
+                                    <p><i class="fa fa-clock-o"></i>@DateTime.Now</p>
+                                    <p><i class="fa fa-map-marker"></i>Yer: Kurtköy,Pendik/İSTANBUL</p>
+                                </div>
+                                <blockquote>
+                                    <span class="fa fa-quote-left"></span>
+                                    Hat Aydınlatma Elektrik temellerini 1990 yılında atmış ve halen sizlere hizmet vermektedir.
+                                    Ayedaş şefliğinden ayrılan Ahmet Al'ın kurmuş olduğu firma yetkili elektrik Fen Adamı Belgesi,
+                                    Elektrik teknikerliği ve bireysel olarak kazanılan bilgi birikimile önceleri perakende satış sistemi, proje, talep, taahhüt
+                                    inşaat, arıza, bakım ve onarım olarak hizmet vermekteyken 2015 yılında toptan satış sistemini de bünyesine katarak giderek büyümeye
+                                    devam ediyor.Sizlere daha iyi hizmet sunmak için kendini sürekli olarak yenileyen geniş bir vizyonu bulunmakta.Firmamız
+                                    içerisinde bulunduğu geniş ürün yelpazesi ile elektrik malzemeleri toptan ve perakende satışının yanı sıra avize satışıyla
+                                    da dikkatleri üstüne çeken firmamız güven ve toptan elektrik satış mağazası olan Hat Aydınlatma Elektrik İnş. San. Tic. LTd. Şti. 850 M2'lik
+                                    devasa bir alanda sizlere hizmet vermeye devam etmektedir.
+
+                                </blockquote>
+
+                            </div>
+                        </div>
+                        <!-- End single blog -->
+                    </div>
+                    <!-- end blog archive  -->
+
+                </div>
+            </div>
+            <!-- End course content -->
+            <!-- start course archive sidebar -->
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="courseArchive_sidebar">
+                    <!-- start single sidebar -->
+                    <div class="single_sidebar">
+                        <h2>Popüler Ürünler <span class="fa fa-angle-double-right"></span></h2>
+                        @Html.Action("_PopulerUrunler", "Home")
+                    </div>
+                    <!-- End single sidebar -->
+                    <!-- start single sidebar -->
+                    <div class="single_sidebar">
+                        <h2>Kategori <span class="fa fa-angle-double-right"></span></h2>
+                        @Html.Action("_KategoriPartial", "Home")
+                    </div>
+
+                </div>
+            </div>
+            <!-- start course archive sidebar -->
+        </div>
+    </div>
+</section>
+<!--=========== END COURSE BANNER SECTION ================-->

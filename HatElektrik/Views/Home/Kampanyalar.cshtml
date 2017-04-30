@@ -1,0 +1,96 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<HatElektrik.Models.Tablolar.Kampanya>
+@{
+    ViewBag.Title = "Hat Elektrik Kampanyalar";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+<!--=========== BEGIN COURSE BANNER SECTION ================-->
+@*<section id="imgBanner">
+        <h2>Blog Archive</h2>
+    </section>*@
+<h2>Kampanyalar</h2>
+<!--=========== END COURSE BANNER SECTION ================-->
+<!--=========== BEGIN COURSE BANNER SECTION ================-->
+<section id="courseArchive">
+    <div class="container">
+        <div class="row">
+            <!-- start course content -->
+            <div class="col-lg-8 col-md-8 col-sm-8">
+                <div class="courseArchive_content">
+                    <!-- start blog archive  -->
+                    <div class="row">
+                        <!-- start single kampanya archive -->
+                        @if (Model.Count() > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <div class="col-lg-12 col-12 col-sm-12">
+                                    <div class="single_blog_archive wow fadeInUp">
+                                        <div class="blogimg_container">
+                                            <img alt="@item.Baslik" src="@item.ResimURL" width="100%" height="400">
+                                        </div>
+                                        <h2 class="blog_title"> @item.Baslik</h2>
+                                        <div class="blog_commentbox">
+                                            <p><i class="fa fa-user"></i>Hat Adınlatma & Elektrik</p>
+                                            <p><i class="fa fa-calendar"></i>@item.EklenmeTarihi</p>
+                                        </div>
+                                        <p class="blog_summary">@item.Aciklama</p>
+                                    </div>
+                                </div>
+                            }
+                            <!-- stop single kampanya archive -->
+                            <nav>
+                                @Html.PagedListPager(Model, Sayfa => Url.Action("Kampanyalar", new { Sayfa }), PagedListRenderOptions.Classic)
+                            </nav>
+                        }
+                        else
+                        {
+                            <div class="col-lg-12 col-12 col-sm-12">
+                                <div class="single_blog_archive wow fadeInUp">
+                                    <div class="blogimg_container">
+                                        <img alt="Kampanya Yok" src="~/External/kampanya-yok.jpg" width="100%" height="400" />
+                                    </div>
+                                    <h2 class="blog_title">Kampanya Bulunamamıştır</h2>
+                                    <div class="blog_commentbox">
+                                        <p><i class="fa fa-user"></i>Hat Adınlatma & Elektrik</p>
+                                        <p><i class="fa fa-calendar"></i>Eklenme Tarihi Yok</p>
+                                    </div>
+                                    <p class="blog_summary">Şirketimizin Yürüttüğü Kampanya Şuanda Bulunamamıştır. Lütfen Bizi Takip Edin</p>
+                                </div>
+                            </div>
+                        }
+
+
+
+
+                    </div>
+                    <!-- end blog archive  -->
+
+
+                </div>
+            </div>
+            <!-- End course content -->
+            <!-- start course archive sidebar -->
+            <div class="col-lg-4 col-md-4 col-sm-4">
+                <div class="courseArchive_sidebar">
+                    <!-- start single sidebar -->
+                    <div class="single_sidebar">
+                        <h2>Popüler Ürünler <span class="fa fa-angle-double-right"></span></h2>
+                        @Html.Action("_PopulerUrunler", "Home")
+                    </div>
+                    <!-- End single sidebar -->
+                    <!-- start single sidebar -->
+                    <div class="single_sidebar">
+                        <h2>Kategori <span class="fa fa-angle-double-right"></span></h2>
+                        @Html.Action("_KategoriPartial", "Home")
+                    </div>
+
+                </div>
+            </div>
+            <!-- start course archive sidebar -->
+        </div>
+    </div>
+</section>
+<!--=========== END COURSE BANNER SECTION ================-->

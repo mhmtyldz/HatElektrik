@@ -1,0 +1,28 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model PagedList.IPagedList<HatElektrik.Models.Tablolar.Galeri>
+@{
+    ViewBag.Title = "Hat Elektrik Galeri";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+<h2>Galeri</h2>
+<section id="gallery">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div id="gallerySLide" class="gallery_area">
+                    @foreach (var item in Model)
+                    {
+                        <a href="@item.ResimURL" title="@item.Baslik">
+                            <img class="gallery_img" src="@item.ResimURL" alt="@item.Baslik" />
+                            <span class="view_btn">Resmi Gör</span>
+                        </a>
+                    }
+
+
+                </div>
+            </div>
+            @Html.PagedListPager(Model, Sayfa => Url.Action("Galeri", new { Sayfa }), PagedListRenderOptions.Classic)
+        </div>
+    </div>
+</section>

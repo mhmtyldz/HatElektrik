@@ -1,0 +1,63 @@
+﻿@model HatElektrik.Models.Tablolar.Urun
+@{
+    ViewBag.Title = @Model.Baslik + "Urun Ayrinti";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+<!--=========== BEGIN COURSE BANNER SECTION ================-->
+
+<h2>Ürün Detay</h2>
+
+<section id="courseArchive">
+    <div class="container">
+        <div class="row">
+            <!-- start course content -->
+            <div class="col-lg-7 col-md-7 col-sm-7" >
+                <div class="courseArchive_content">
+                    <div class="singlecourse_ferimg_area">
+                        <h2>@Model.Baslik</h2>
+                        <div class="singlecourse_ferimg">
+                            <img src="@Model.ResimURL" alt="@Model.Baslik">
+                        </div>
+                        <div class="singlecourse_bottom">
+
+                            <span class="singlecourse_author">
+                                <i class="glyphicon glyphicon-eye-open"></i>  @Model.Okunma Kişi Tarafından Görülmüştür.
+                            </span>
+                            <span class="singlecourse_price">@Model.Fiyat TL</span>
+                        </div>
+                    </div>
+                    <div class="single_course_content">
+                        <h2>Özellikler</h2>
+                        @Model.Aciklama
+                    </div>
+                    
+                   
+                </div>
+                <a href="/Home/iletisim" class="btn btn-info">Sipariş Ver</a> 
+            </div>
+            <!-- End course content -->
+            <!-- start course archive sidebar -->
+            <div class="col-lg-5 col-md-5 col-sm-5">
+                <div class="courseArchive_sidebar">
+                    <!-- start single sidebar -->
+                    <div class="single_sidebar">
+                        <h2>Popüler Ürünler <span class="fa fa-angle-double-right"></span></h2>
+                        @Html.Action("_PopulerUrunler", "Home")
+                    </div>
+                    <!-- End single sidebar -->
+                    <!-- start single sidebar -->
+                    <div class="single_sidebar">
+                        <h2>Kategori <span class="fa fa-angle-double-right"></span></h2>
+                        @Html.Action("_KategoriPartial", "Home")
+                    </div>
+
+                </div>
+            </div>
+
+            
+            <!-- start course archive sidebar -->
+        </div>
+    </div>
+</section>
+<!--=========== END COURSE BANNER SECTION ================-->
